@@ -1,9 +1,9 @@
 FROM node:latest
-RUN mkdir -p /usr/public
-WORKDIR /usr/public
-COPY package.json /usr/public
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY package.json /usr/src/app
 RUN npm install
 RUN npm start
-COPY . /usr/public
+COPY . /usr/src/app
 EXPOSE 3000
 CMD ["npm", "start"]
