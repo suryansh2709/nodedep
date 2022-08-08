@@ -1,9 +1,15 @@
 FROM node:latest
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-COPY package.json /usr/src/app
+
+MAINTAINER yo           
+
+RUN echo "Tryin to build my first application"
+
+COPY . /var/www
+
+WORKDIR /var/www
+
 RUN npm install
-RUN npm start
-COPY . /usr/src/app
+
 EXPOSE 3000
-CMD ["npm", "start"]
+
+ENTRYPOINT ["npm","start"]
